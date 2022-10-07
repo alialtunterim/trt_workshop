@@ -12,7 +12,8 @@ persist_with: workshop_default_datagroup
 
 explore: main {
   join: rating_data {
-    relationship: many_to_many
+    type: left_outer
     sql_on: ${main.title}= ${rating_data.title} ;;
+    relationship: one_to_one
   }
 }
