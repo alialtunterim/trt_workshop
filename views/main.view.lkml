@@ -49,6 +49,7 @@ view: main {
 
   dimension: start_year {
     type: number
+    value_format: "#0"
     sql: ${TABLE}.startYear ;;
   }
 
