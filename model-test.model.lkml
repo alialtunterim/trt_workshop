@@ -33,5 +33,4 @@ explore: order_items {
     sql_on: ${events.user_id}=${order_items.user_id} ;;
   }
 
-
 }
