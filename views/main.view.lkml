@@ -42,6 +42,28 @@ view: main {
     sql: ${TABLE}.rating ;;
   }
 
+  dimension: rating_group{
+    case: {
+      when: {
+        sql: ${rating} between 0 and 3 ;;
+        label: "Kötü"
+      }
+      when: {
+        sql: ${rating} between 3 and 6 ;;
+        label: "Orta"
+      }
+      when: {
+        sql: ${rating} between 6 and 8 ;;
+        label: "İyi"
+      }
+      when: {
+        sql: ${rating} between 8 and 10 ;;
+        label: "Çok iyi"
+      }
+      else: "Rate Yok"
+    }
+  }
+
   dimension: runtime {
     type: string
     sql: ${TABLE}.runtime ;;
@@ -56,6 +78,11 @@ view: main {
   dimension: title {
     type: string
     sql: ${TABLE}.title ;;
+
+    link: {
+      label: "Google Search"
+      url: "http://www.google.com/search?q={{ value }}"
+    }
   }
 
   dimension: type {

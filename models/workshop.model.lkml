@@ -14,10 +14,6 @@ explore: main {
   label: "Netflix Data"
 }
 
-explore: rating_data {
-  label: "All Stream Platform"
-}
-
 #explore: main {
 #  join: rating_data {
 #    type: left_outer
