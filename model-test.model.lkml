@@ -12,6 +12,7 @@ datagroup: model-test_default_datagroup {
 persist_with: model-test_default_datagroup
 
 explore: order_items {
+
   join: orders {
     relationship: one_to_many
     sql_on: ${order_items.order_id}=${orders.order_id} ;;
@@ -19,7 +20,18 @@ explore: order_items {
 
   join: products {
     relationship: one_to_many
-    sql_on: ${products.id}= ${products.id}  ;;
-}
+    sql_on: ${products.id}= ${order_items.product_id} ;;
+  }
+
+  join: inventory_items {
+    relationship: one_to_many
+    sql_on: ${order_items.inventory_item_id}=${inventory_items.id} ;;
+  }
+
+  join: events {
+    relationship: one_to_many
+    sql_on: ${events.user_id}=${order_items.user_id} ;;
+  }
+
 
 }
