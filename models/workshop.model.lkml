@@ -13,11 +13,3 @@ persist_with: workshop_default_datagroup
 explore: main {
   label: "Netflix Data"
 }
-
-#explore: main {
-#  join: rating_data {
-#    type: left_outer
-#    sql_on: ${main.title}= ${rating_data.title} ;;
-#    relationship: one_to_one
-#  }
-#}
