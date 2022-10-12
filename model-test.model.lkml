@@ -28,9 +28,14 @@ explore: order_items {
     sql_on: ${order_items.inventory_item_id}=${inventory_items.id} ;;
   }
 
-  join: events {
+ # join: events {
+  #  relationship: one_to_many
+  #  sql_on: ${events.user_id}=${order_items.user_id} ;;
+  #}
+
+  join: users {
     relationship: one_to_many
-    sql_on: ${events.user_id}=${order_items.user_id} ;;
+    sql_on: ${users.id} = ${order_items.user_id} ;;
   }
 
 }
