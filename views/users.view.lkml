@@ -19,6 +19,13 @@ view: users {
     sql: ${TABLE}.city ;;
   }
 
+  dimension: city_lat_long {
+    type: location
+    sql_latitude: ${latitude} ;;
+    sql_longitude: ${longitude} ;;
+    suggest_dimension: city
+  }
+
   dimension: country {
     type: string
     map_layer_name: countries
