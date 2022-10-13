@@ -15,6 +15,7 @@ explore: main {
 }
 
 explore: order_items {
+  label: "New model"
   join: orders {
     relationship: one_to_many
     sql_on: ${order_items.order_id}= ${orders.order_id} ;;
